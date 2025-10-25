@@ -23,6 +23,9 @@ export interface User {
   weapons: string[];
   tanks: string[];
   vehicles: string[];
+  friends: string[];
+  friendRequests: string[];
+  isOnline: boolean;
 }
 
 const Index = () => {
@@ -43,6 +46,9 @@ const Index = () => {
       weapons: ['AK-47', 'M4A1', 'AWP'],
       tanks: ['T-72', 'Абрамс'],
       vehicles: ['УАЗ', 'Хаммер'],
+      friends: [],
+      friendRequests: [],
+      isOnline: true,
     };
 
     const users = JSON.parse(localStorage.getItem('users') || '[]');

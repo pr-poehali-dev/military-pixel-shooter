@@ -70,12 +70,50 @@ const Game = ({ user, updateUser, onBack }: GameProps) => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = '#2d3748';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = '#4a5568';
-    for (let i = 0; i < 5; i++) {
-      ctx.fillRect(50, 50 + i * 100, 150, 60);
+    if (selectedMission === 1) {
+      ctx.fillStyle = '#3d4a3a';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.fillStyle = '#4a5568';
+      for (let i = 0; i < 5; i++) {
+        ctx.fillRect(30, 50 + i * 80, 180, 50);
+        ctx.fillStyle = '#2d3748';
+        ctx.fillRect(40, 55 + i * 80, 160, 15);
+        ctx.fillStyle = '#4a5568';
+      }
+      
+      ctx.fillStyle = '#8b7355';
+      for (let i = 0; i < 20; i++) {
+        ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, 3, 3);
+      }
+    } else if (selectedMission === 2) {
+      ctx.fillStyle = '#4a4a4a';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.fillStyle = '#5a5a5a';
+      for (let i = 0; i < 4; i++) {
+        ctx.fillRect(100 + i * 150, 50, 100, 150);
+        ctx.fillStyle = '#3a3a3a';
+        for (let j = 0; j < 3; j++) {
+          ctx.fillRect(110 + i * 150, 60 + j * 40, 30, 30);
+        }
+        ctx.fillStyle = '#5a5a5a';
+      }
+      
+      for (let i = 0; i < 10; i++) {
+        ctx.fillStyle = 'rgba(100, 100, 100, 0.5)';
+        ctx.beginPath();
+        ctx.arc(Math.random() * canvas.width, Math.random() * 200, 20 + Math.random() * 30, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    } else {
+      ctx.fillStyle = '#2d3748';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.fillStyle = '#4a5568';
+      for (let i = 0; i < 5; i++) {
+        ctx.fillRect(50, 50 + i * 100, 150, 60);
+      }
     }
 
     ctx.fillStyle = '#ea384c';

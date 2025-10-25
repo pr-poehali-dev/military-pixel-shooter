@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
@@ -10,6 +11,26 @@ interface MainMenuProps {
 }
 
 const MainMenu = ({ user, onNavigate }: MainMenuProps) => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio('https://assets.mixkit.co/music/preview/mixkit-deep-urban-623.mp3');
+      audioRef.current.loop = true;
+      audioRef.current.volume = 0.3;
+    }
+
+    const playAudio = () => {
+      audioRef.current?.play().catch(() => {});
+    };
+
+    playAudio();
+    document.addEventListener('click', playAudio, { once: true });
+
+    return () => {
+      audioRef.current?.pause();
+    };
+  }, []);
   const menuItems = [
     { id: 'profile', label: 'Профиль', icon: 'User' },
     { id: 'friends', label: 'Друзья', icon: 'Users' },

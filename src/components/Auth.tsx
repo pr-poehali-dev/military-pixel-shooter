@@ -51,6 +51,9 @@ const Auth = ({ onLogin }: AuthProps) => {
         weapons: ['AK-47'],
         tanks: [],
         vehicles: [],
+        friends: [],
+        friendRequests: [],
+        isOnline: true,
       };
 
       users.push(newUser);
