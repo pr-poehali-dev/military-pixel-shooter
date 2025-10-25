@@ -91,14 +91,16 @@ const Auth = ({ onLogin }: AuthProps) => {
           )}
 
           <div>
-            <label className="block text-sm font-medium mb-2 text-foreground">Email</label>
+            <label className="block text-sm font-medium mb-2 text-foreground">
+              {isLogin ? 'Email или логин' : 'Email'}
+            </label>
             <Input
-              type="email"
+              type={isLogin ? "text" : "email"}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
               className="bg-background border-military-gray/50"
-              placeholder="Введите email"
+              placeholder={isLogin ? "Введите email или логин" : "Введите email"}
             />
           </div>
 
