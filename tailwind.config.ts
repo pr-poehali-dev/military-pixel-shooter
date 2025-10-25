@@ -6,7 +6,7 @@ export default {
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}"
 	],
 	prefix: "",
 	theme: {
@@ -18,7 +18,15 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'rubik': ['Rubik', 'sans-serif'],
+				'oswald': ['Oswald', 'sans-serif'],
+			},
 			colors: {
+				'military-dark': '#1A1F2C',
+				'military-darker': '#141822',
+				'military-accent': '#ea384c',
+				'military-gray': '#8E9196',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
